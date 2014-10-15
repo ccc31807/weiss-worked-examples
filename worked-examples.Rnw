@@ -1,0 +1,286 @@
+\documentclass{article}
+
+\usepackage{textgreek}
+
+\title{Worked Examples using \textsf{R}, \textit{Introductory Statistics, 7th ed.} by Neil Weiss}
+\author{Charles Carter\thanks{cccarter@troy.edu}}
+\date{October 1, 2014}
+
+\begin{document}
+
+\maketitle{}
+\tableofcontents{}
+\abstract{This paper consists of the worked examples in each chapter of \textit{Introductory Statistics, 7th Edition} by Neil Weiss, using the \textsf{R} programming language}
+
+
+\section{Chapter 1}
+
+\subsection{Example 1.1, Descriptive Statistics}This example contains no code.
+\subsection{Example 1.2, Inferential Statistics}This example contains no code.
+\subsection{Example 1.3, Classifying Statistical Studies}This example contains no code.
+\subsection{Example 1.4, Classifying Statistical Studies}This example contains no code.
+\subsection{Example 1.5, Simple Random Samples}
+
+<<ex01-05, eval=TRUE, dev='png', fig.width = 4, fig.height = 3>>=
+#create vector of officials
+library(prob)
+off <- c('G', 'L', 'S', 'A', 'T')
+#part a, list of samples of size 2
+urnsamples(off, 2)
+#part d, list of samples of size 4
+urnsamples(off, 4)
+@
+
+\subsection{Example 1.6, Random-Number Tables}
+
+<<ex01-06, eval=TRUE, dev='png', fig.width = 4, fig.height = 3>>=
+#generate 15 random integers between 1 and 728
+sample(1:728, 15)
+@
+
+\subsection{Example 1.7, Systematic Random Sampling}
+
+<<ex01-07, eval=TRUE, dev='png', fig.width = 4, fig.height = 3>>=
+#declare variables
+pop <- 728
+sos <- 15
+division <- floor(pop / sos)
+division
+start <- sample(1:division, 1)
+start
+#generate sequence
+s <- seq(start, pop, division)
+s
+@
+
+
+\section{Chapter 2}
+
+
+
+\section{Chapter 3}
+
+
+
+\section{Chapter 4}
+
+
+
+\section{Chapter 5}
+
+
+
+\section{Chapter 6}
+
+\subsection{Example 6.1,}
+\subsection{Example 6.2,}
+\subsection{Example 6.3,}
+\subsection{Example 6.4,}
+\subsection{Example 6.5,}
+\subsection{Example 6.6,}
+\subsection{Example 6.7,}
+\subsection{Example 6.8,}
+\subsection{Example 6.9,}
+\subsection{Example 6.10,}
+\subsection{Example 6.11,}
+\subsection{Example 6.12,}
+
+\subsection{Example 6.13, Using Technology to Obtain Normal Percentiles}
+<<ex06-13, eval=TRUE, dev='png', fig.width = 4, fig.height = 4>>=
+mu <- 100
+sigma <- 16
+ptile <- qnorm(0.90, mu, sigma)
+ptile
+@
+
+\subsection{Example 6.14, Normal Probability Plots}
+<<ex06-14, eval=TRUE, dev='png', fig.width = 4, fig.height = 4>>=
+#read in the data
+income <- read.csv("data/Tb06-03.txt")
+str(income)
+qqnorm(income$AGI, datax = TRUE)
+@
+
+
+\section{Chapter 7}
+
+
+
+\section[Chapter 8]{Chapter 8, Confidence Intervals for One Population Mean}
+
+\subsection{Example 8.1, Estimating a Population Mean}
+<<ex08-01, eval=TRUE, dev='png', fig.width = 4, fig.height = 3>>=
+#read in the data
+prices <- read.csv("data/Tb08-01.txt")
+str(prices)
+hist(prices$PRICE, breaks = 5)
+sum <- sum(prices$PRICE)
+n <- nrow(prices)
+mu <- sum / n
+#alternatively
+mu1 <- mean(prices$PRICE)
+@
+
+\paragraph{}The estimated population, $\mu$, from the sample mean, $\bar{x}$, is \Sexpr{mu}.
+
+\subsection{Example 8.2, Introducing Confidence Intervals}
+<<ex08-02, eval=TRUE, dev='png', fig.width = 4, fig.height = 3>>=
+#read in the data
+prices <- read.csv("data/Tb08-01.txt")
+str(prices)
+hist(prices$PRICE, breaks = 5)
+sum <- sum(prices$PRICE)
+n <- nrow(prices)
+mu <- sum / n
+sigma <- 7.2
+s <- sigma / sqrt(n)
+cat(sum, n, mu, sigma, s)
+confidence.interval <- simple.z.test(prices$PRICE, sigma, conf.level = 0.9544)
+confidence.interval
+@
+
+\subsection{Example 8.3, Interpreting Confidence Intervals}
+
+\subsection{Example 8.1, }
+
+
+\section[Chapter 9]{Chapter 9, Hypothesis Tests for One Population Mean}
+
+\subsection{Example 9.1, Choosing the Null and Alternative Hypotheses}This example contains no code.
+\subsection{Example 9.2, Choosing the Null and Alternative Hypotheses}This example contains no code.
+\subsection{Example 9.3, Choosing the Null and Alternative Hypotheses}This example contains no code.
+\subsection{Example 9.4, The Logic of Hypothesis Testing}
+
+Null hypothesis is $H_0: \mu = 454$. \\
+Alternative hypothesis is $H_\alpha: \mu \not= 454$.
+
+<<ex09-04, eval=TRUE, dev='png', fig.width = 3, fig.height = 3>>=
+# load the data file
+weights <- read.csv("data/Tb09-01.txt")
+str(weights)
+#declare and initialize variables
+mu <- 454
+sigma <- 7.8
+n <- 25
+xbar <- mean(weights$WEIGHT)
+ztest <- (xbar - mu) / (sigma / sqrt(n))
+ztest
+#determine the result of the test
+result <- pnorm(ztest)
+result
+
+#use simple z test from UsingR package
+library(UsingR)
+conf.int <- simple.z.test(weights$WEIGHT, sigma = sigma, conf.level = 0.9544)
+conf.int
+@
+
+\paragraph{}The claimed weight of the population is $\mu{}$ per bag, $\Sexpr{mu}$ grams. The mean sample weight is $\bar{x}$ per bag, $\Sexpr{xbar}$ grams. The $z$ value is $\Sexpr{ztest}$, which is more than two standard deviations below the population mean. 
+
+
+\subsection{Example 9.5, Type I and Type II Errors}This example contains no code.
+\subsection{Example 9.6, Obtaining the Critical Values}
+
+<<ex09-06, eval=TRUE, dev='png', fig.width = 3, fig.height = 3>>=
+left.tail <- qnorm(0.05)
+left.tail
+right.tail <- qnorm(0.95)
+right.tail
+two.tail.left <- qnorm(0.025)
+two.tail.left
+two.tail.right <- qnorm(0.975)
+two.tail.right
+@
+
+\subsection{Example 9.7, The One-Sample z-Test}
+
+Null hypothesis is $H_0: \mu = \$51.46$. \\
+Alternative hypothesis is $H_\alpha: > \$51.46$
+
+<<ex09-07, eval=TRUE, dev='png', fig.width = 3, fig.height = 3>>=
+# load the data file
+books <- read.csv("data/Tb09-05.txt")
+str(books)
+#declare and initialize variables
+mu <- 51.46
+sigma <- 7.61
+n <- 40
+xbar <- mean(books$PRICE)
+right.tail = 0.01
+ztest <- (xbar - mu) / (sigma / sqrt(n))
+ztest
+right.crit <- qnorm(1 - right.tail)
+right.crit
+@
+
+\paragraph{}The $z$ statistic is \Sexpr{ztest}, which is greater than the critical value of \Sexpr{right.crit}, so we reject the null hypothesis.
+
+\subsection{Example 9.8, The One-Sample z-Test}
+
+Null hypothesis is $H_0: \mu = 800$. \\
+Alternative hypothesis is $H_\alpha: < 800$
+
+<<ex09-08, eval=TRUE, dev='png', fig.width = 3, fig.height = 3>>=
+# load the data file
+rda <- read.csv("data/Tb09-06.txt")
+str(rda)
+#declare and initialize variables
+mu <- 800
+sigma <- 188
+n <- 18
+xbar <- mean(rda$CALCI)
+left.tail = 0.05
+ztest <- (xbar - mu) / (sigma / sqrt(n))
+ztest
+left.crit <- qnorm(left.tail)
+left.crit
+@
+
+\paragraph{}The $z$ statistic is \Sexpr{ztest}, which is less than the critical value of \Sexpr{left.crit}, so we do not reject the null hypothesis.
+
+\subsection{Example 9.9, The One-Sample z-Test}
+
+Null hypothesis is $H_0: \mu = 60$. \\
+Alternative hypothesis is $H_\alpha: \not= 60$
+
+<<ex09-09, eval=TRUE, dev='png', fig.width = 4, fig.height = 3>>=
+# load the data file
+cheetah <- read.csv("data/Tb09-07.txt")
+str(cheetah)
+#histogram of the data set
+hist(cheetah$SPEEDS, breaks = 15, xlab = "Cheetah Speeds", ylab = "Counts", main = "Histogram of Cheetah Speeds Sample")
+#declare and initialize variables
+mu <- 60
+sigma <- 3.2
+n <- 35
+xbar <- mean(cheetah$SPEEDS)
+tails = 0.05
+ztest <- (xbar - mu) / (sigma / sqrt(n))
+ztest
+crits <- qnorm(c( tails / 2, (1 - tails / 2)))
+crits
+@
+
+\paragraph{}The $z$ statistic is \Sexpr{ztest}, which is less than the critical values of \Sexpr{crits}, so we do not reject the null hypothesis.
+
+\subsection{Example 9.10, }
+\subsection{Example 9.11, }
+\subsection{Example 9.12, }
+\subsection{Example 9.13, }
+\subsection{Example 9.14, }
+\subsection{Example 9.15, }
+\subsection{Example 9.16, }
+\subsection{Example 9.17, }
+\subsection{Example 9.18, }
+\subsection{Example 9.19, }
+\subsection{Example 9.20, }
+\subsection{Example 9.21, }
+
+\section{Chapter 10}
+
+
+\section{Chapter 11}
+
+
+
+\end{document}
