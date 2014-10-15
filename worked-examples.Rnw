@@ -20,7 +20,6 @@
 \subsection{Example 1.3, Classifying Statistical Studies}This example contains no code.
 \subsection{Example 1.4, Classifying Statistical Studies}This example contains no code.
 \subsection{Example 1.5, Simple Random Samples}
-
 <<ex01-05, eval=TRUE, dev='png', fig.width = 4, fig.height = 3>>=
 #create vector of officials
 library(prob)
@@ -53,10 +52,48 @@ s <- seq(start, pop, division)
 s
 @
 
+\subsection{Example 1.8, }
+\subsection{Example 1.9, }
+\subsection{Example 1.10, }
+\subsection{Example 1.11, }
+\subsection{Example 1.12, }
+\subsection{Example 1.13, }
+
 
 \section{Chapter 2}
 
+\subsection{Example 2.1, Variables and Data}This example contains no code.
+\subsection{Example 2.2, Variables and Data}This example contains no code.
+\subsection{Example 2.3, Variables and Data}This example contains no code.
+\subsection{Example 2.4, Variables and Data}This example contains no code.
+\subsection{Example 2.5, Grouping Quantitative Data}
 
+<<ex02-5, eval=TRUE, dev='png', fig.width = 4, fig.height = 4>>=
+#read in the data
+invest <- read.csv("data/Tb02-01.txt")
+str(invest)
+w <- cut(invest$DAYS, c(30, 40, 50, 60, 70, 80, 90, 100), right = FALSE)
+invest$CAT <- w
+table(invest$CAT)
+x <- table(invest$CAT)
+y <- prop.table(x)
+z <-  merge(x, y, by.x = "Var1", by.y = "Var1")
+z
+@
+
+\subsection{Example 2.6, }
+\subsection{Example 2.7, }
+\subsection{Example 2.8, }
+\subsection{Example 2.9, }
+\subsection{Example 2.10, }
+\subsection{Example 2.11, }
+\subsection{Example 2.12, }
+\subsection{Example 2.13, }
+\subsection{Example 2.14, }
+\subsection{Example 2.15, }
+\subsection{Example 2.16, }
+\subsection{Example 2.17, }
+\subsection{Example 2.18, }
 
 \section{Chapter 3}
 
