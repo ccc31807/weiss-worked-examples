@@ -1,0 +1,27 @@
+Title,Author,Subject
+Data Science,Jeffery Stanton,R
+Drawing Graphs with Dot,Emden Gansner et al,dot
+vim documentation,,vim
+Package 'ROCR',Tobias Sing et al,R
+Think Bayes (part),Allen Downey,Bayes
+Predictive Modeling with R and the caret Package,Max Kuhn,R
+Introduction to dplyr,,R
+Version Control with Git,Jon Loeliger et al,git
+perl docs,various,perl
+SQLite tutorial,various,SQLite
+Common Lisp docs,various,lisp
+Common Lisp docs (more),various,lisp
+LaTeX Tutorial,Research and Academic Computing,LaTeX
+The Days of Vengeance,David Chilton,theology
+Java source,Charles Carter et al,Java
+MongoDB,,MongoDB
+Erlang Debugger,,Erlang
+Region Directors Overview,David White,TROY
+R and mapping,various,R
+PostGIS Tutorial,Uwe, Dalluge,PostGIS
+Modern Perl,chromatic,perl
+
+
+
+tags:
+R,dot,vim,Bayes,git,perl,SQLite,lisp,LaTeX,theology,Java,MongoDB,Erlang,TROY,PostGIS
