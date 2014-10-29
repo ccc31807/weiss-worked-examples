@@ -1,6 +1,7 @@
 \documentclass{article}
 
 \usepackage{textgreek}
+\usepackage{hyperref}
 
 \title{Worked Examples using \textsf{R}, \textit{Introductory Statistics, 7th ed.} by Neil Weiss}
 \author{Charles Carter\thanks{cccarter@troy.edu}}
@@ -12,14 +13,24 @@
 \tableofcontents{}
 \abstract{This paper consists of the worked examples in each chapter of \textit{Introductory Statistics, 7th Edition} by Neil Weiss, using the \textsf{R} programming language}
 
+%chapter 1
+\section{The Nature of Statistics}
 
-\section{Chapter 1}
+%example 1.1
+\subsection{Descriptive Statistics}This example contains no code.
 
-\subsection{Example 1.1, Descriptive Statistics}This example contains no code.
-\subsection{Example 1.2, Inferential Statistics}This example contains no code.
-\subsection{Example 1.3, Classifying Statistical Studies}This example contains no code.
-\subsection{Example 1.4, Classifying Statistical Studies}This example contains no code.
-\subsection{Example 1.5, Simple Random Samples}
+%example 1.2
+\subsection{Inferential Statistics}This example contains no code.
+
+%example 1.3
+\subsection{Classifying Statistical Studies}This example contains no code.
+
+%example 1.4
+\subsection{Classifying Statistical Studies}This example contains no code.
+
+%example 1.5
+\subsection{Simple Random Samples}
+
 <<ex01-05, eval=TRUE, dev='png', fig.width = 4, fig.height = 3>>=
 #create vector of officials
 library(prob)
@@ -30,14 +41,16 @@ urnsamples(off, 2)
 urnsamples(off, 4)
 @
 
-\subsection{Example 1.6, Random-Number Tables}
+%example 1.6
+\subsection{Random-Number Tables}
 
 <<ex01-06, eval=TRUE, dev='png', fig.width = 4, fig.height = 3>>=
 #generate 15 random integers between 1 and 728
 sample(1:728, 15)
 @
 
-\subsection{Example 1.7, Systematic Random Sampling}
+%example 1.7
+\subsection{Systematic Random Sampling}
 
 <<ex01-07, eval=TRUE, dev='png', fig.width = 4, fig.height = 3>>=
 #declare variables
@@ -52,21 +65,41 @@ s <- seq(start, pop, division)
 s
 @
 
-\subsection{Example 1.8, }
-\subsection{Example 1.9, }
-\subsection{Example 1.10, }
-\subsection{Example 1.11, }
-\subsection{Example 1.12, }
-\subsection{Example 1.13, }
+%example 1.8
+\subsection{}
 
+%example 1.9
+\subsection{}
 
-\section{Chapter 2}
+%example 1.10
+\subsection{}
 
-\subsection{Example 2.1, Variables and Data}This example contains no code.
-\subsection{Example 2.2, Variables and Data}This example contains no code.
-\subsection{Example 2.3, Variables and Data}This example contains no code.
-\subsection{Example 2.4, Variables and Data}This example contains no code.
-\subsection{Example 2.5, Grouping Quantitative Data}
+%example 1.11
+\subsection{}
+
+%example 1.12
+\subsection{}
+
+%example 1.13
+\subsection{}
+
+%chapter 2
+\section{Organizing Data}
+
+%example 2.1
+\subsection{Variables and Data}This example contains no code.
+
+%example 2.2
+\subsection{Variables and Data}This example contains no code.
+
+%example 2.3
+\subsection{Variables and Data}This example contains no code.
+
+%example 2.4
+\subsection{Variables and Data}This example contains no code.
+
+%example 2.5
+\subsection{Grouping Quantitative Data}
 
 <<ex02-5, eval=TRUE, dev='png', fig.width = 4, fig.height = 4>>=
 #read in the data
@@ -81,33 +114,61 @@ z <-  merge(x, y, by.x = "Var1", by.y = "Var1")
 z
 @
 
-\subsection{Example 2.6, }
-\subsection{Example 2.7, }
-\subsection{Example 2.8, }
-\subsection{Example 2.9, }
-\subsection{Example 2.10, }
-\subsection{Example 2.11, }
-\subsection{Example 2.12, }
-\subsection{Example 2.13, }
-\subsection{Example 2.14, }
-\subsection{Example 2.15, }
-\subsection{Example 2.16, }
-\subsection{Example 2.17, }
-\subsection{Example 2.18, }
 
-\section{Chapter 3}
+%example 2.6
+\subsection{}
+
+%example 2.7
+\subsection{}
+
+%example 2.8
+\subsection{}
+
+%example 2.9
+\subsection{}
+
+%example 2.10
+\subsection{}
+
+%example 2.11
+\subsection{}
+
+%example 2.12
+\subsection{}
+
+%example 2.13
+\subsection{}
+
+%example 2.14
+\subsection{}
+
+%example 2.15
+\subsection{}
+
+%example 2.16
+\subsection{}
+
+%example 2.17
+\subsection{}
+
+%example 2.18
+\subsection{}
+
+%chapter 3
+\section{Descriptive Measures}
 
 
 
-\section{Chapter 4}
+%chapter 4
+\section{Probability Concepts}
 
 
+%chapter 5
+\section{Discrete Random Variables}
 
-\section{Chapter 5}
 
-
-
-\section{Chapter 6}
+%chapter 6
+\section{The Normal Distribution}
 
 \subsection{Example 6.1,}
 \subsection{Example 6.2,}
@@ -138,12 +199,12 @@ str(income)
 qqnorm(income$AGI, datax = TRUE)
 @
 
+%chapter 7
+\section{The Sampling Distribution of the Sample Mean}
 
-\section{Chapter 7}
 
-
-
-\section[Chapter 8]{Chapter 8, Confidence Intervals for One Population Mean}
+%chapter 8
+\section{Confidence Intervals for One Population Mean}
 
 \subsection{Example 8.1, Estimating a Population Mean}
 <<ex08-01, eval=TRUE, dev='png', fig.width = 4, fig.height = 3>>=
@@ -178,10 +239,17 @@ confidence.interval
 
 \subsection{Example 8.3, Interpreting Confidence Intervals}
 
-\subsection{Example 8.1, }
+\subsection{Example 8.4, The One-Sample z-Interval Procedure}
+\subsection{Example 8.5, Using Technology to Obtain a z-Interval}
+\subsection{Example 8.6, Introducing the Margin of Error}
+\subsection{Example 8.7, Sample Size for Estimating $\mu{}$}
+\subsection{Example 8.8, Finding the t-Value Having a Specified Area to the Right}
+\subsection{Example 8.9, The One-Sample t-Interval Procedure}
+\subsection{Example 8.10, The One-Sample t-Interval Procedure}
+\subsection{Example 8.11, Choosing a Confidence Interval Procedure}
 
-
-\section[Chapter 9]{Chapter 9, Hypothesis Tests for One Population Mean}
+%chapter 9
+\section{Hypothesis Tests for One Population Mean}
 
 \subsection{Example 9.1, Choosing the Null and Alternative Hypotheses}This example contains no code.
 \subsection{Example 9.2, Choosing the Null and Alternative Hypotheses}This example contains no code.
@@ -313,10 +381,149 @@ crits
 \subsection{Example 9.20, }
 \subsection{Example 9.21, }
 
-\section{Chapter 10}
+%chapter 10
+\section{Inferences for Two Population Means}
+%chapter 11
+\section{Inferences for Population Standard Deviations}
+%chapter 12
+\section{Inferences for Population Proportions}
+%chapter 13
+\section{Chi-Square Procedures}
+%chapter 14
+\section{Descriptive Methods in Regression and Correlation}
+
+%Example 14.1
+\subsection{Linear Equations}
+<<ex14-01, eval=TRUE, dev='png', fig.width = 4, fig.height = 4>>=
+# load the data file
+wp <- read.csv("data/Tb14-01.txt", sep = "\t")
+str(wp)
+x <- wp$TIME
+y <- 25 + (20 * x)
+line <- lm(y ~ x)
+plot(x, y, xlim = c(0,25), ylim = c(0,500))
+abline(line)
+@
+
+%example 14.2
+\subsection{y-Intercept and Slope}
+<<ex14-02, eval=TRUE, dev='png', fig.width = 4, fig.height = 4>>=
+# load dummy data
+x <- c(-1:10)
+y <- 25 + (20 * x)
+line <- lm(y ~ x)
+plot(x, y, xlim = c(-1,10), ylim = c(-50,200))
+abline(line)
+abline(v=0,col="red", lty = 2)
+abline(h=0,col="red", lty = 3)
+@
+
+%example 14.3
+\subsection{Introducing the Least Squares Criterion}
+
+<<ex14-03, eval=TRUE, dev='png', fig.width = 4, fig.height = 4>>=
+x <- c(1,1,2,4)
+y <- c(1,2,2,6)
+df <- data.frame(x,y)
+df
+plot(df, xlim = c(0, 4), ylim = c(0, 6))
+line <- lm(y ~ x)
+line
+abline(line)
+@
+
+%example 14.4
+\subsection{The Regression Equation}
+
+<<ex14-04, eval=TRUE, dev='png', fig.width = 4, fig.height = 4>>=
+# load Orion data
+orion <- read.csv("data/Tb14-02.txt", sep = "\t")
+str(orion)
+s <- lm(orion$PRICE ~ orion$AGE)
+s
+plot(orion$AGE, orion$PRICE)
+abline(s)
+
+# find y for x equals 3 and 4
+s$coefficients
+intercept <- s$coefficients[[1]]
+slope <- s$coefficients[[2]]
+three.year.old.Orion <- intercept + ( slope * 3)
+three.year.old.Orion
+four.year.old.Orion <- intercept + ( slope * 4)
+four.year.old.Orion
+@
+
+%example 14.5
+\subsection{Using Technology to Obtain a Scatter Diagram}
+
+<<ex14-05, eval=TRUE, dev='png', fig.width = 4, fig.height = 4>>=
+# load Orion data
+orion <- read.csv("data/Tb14-02.txt", sep = "\t")
+str(orion)
+s <- lm(orion$PRICE ~ orion$AGE)
+s
+plot(orion$AGE, orion$PRICE)
+abline(s)
+@
+
+%example 14.6
+\subsection{}
+
+<<ex14-06, eval=TRUE, dev='png', fig.width = 4, fig.height = 4>>=
+@
 
 
-\section{Chapter 11}
+%example 14.7
+\subsection{Introduces the Coefficient of Determination}
+
+<<ex14-07, eval=TRUE, dev='png', fig.width = 4, fig.height = 4>>=
+# load Orion data
+orion <- read.csv("data/Tb14-02.txt", sep = "\t")
+str(orion)
+y.sub.ybar <- orion$PRICE - mean(orion$PRICE)
+y.sub.ybar
+y.sub.ybar.sqr <- y.sub.ybar^2
+y.sub.ybar.sqr
+t <- data.frame(orion,y.sub.ybar,y.sub.ybar.sqr)
+s <- lm(orion$PRICE ~ orion$AGE)
+yhat <- s$coefficients[[1]] + (s$coefficients[[2]] * t$AGE)
+t$yhat <- yhat
+yhat.sub.ybar <- t$yhat - mean(t$PRICE)
+t$yhat.sub.ybar <- yhat.sub.ybar
+y.sub.yhat.sqr <- (t$PRICE - t$yhat)^2
+t$y.sub.yhat.sqr <- y.sub.yhat.sqr
+yhat.sub.ybar.sqr <- (yhat - mean(t$PRICE))^2
+t$yhat.sub.ybar.sqr <- yhat.sub.ybar.sqr
+t
+sst <- sum(t$y.sub.ybar.sqr)
+sst
+ssr <- sum((t$yhat - mean(t$PRICE))^2)
+ssr
+r.sqrd <- ssr / sst
+r.sqrd
+sse <- sum((t$PRICE - t$yhat)^2)
+sse
+@
+
+%example 14.8
+\subsection{}
+
+<<ex14-08, eval=TRUE, dev='png', fig.width = 4, fig.height = 4>>=
+@
+
+%example 14.9
+\subsection{}
+
+<<ex14-09, eval=TRUE, dev='png', fig.width = 4, fig.height = 4>>=
+@
+
+
+
+%chapter 15
+\section{Inferential Methods in Regression and Correlation}
+%chapter 16
+\section{Analysis of Variance (ANOVA)}
 
 
 
