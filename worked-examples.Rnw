@@ -549,15 +549,31 @@ summary(s)$r.squared
 @
 
 %example 14.10
-\subsection{}
+\subsection{The Linear Correlation Coefficienbt}
 
 <<ex14-10, eval=TRUE, dev='png', fig.width = 4, fig.height = 4>>=
+# read in the data
+orion <- read.csv("data/Tb14-02.txt", sep = "\t")
+str(orion)
+# initialize n, x, and y
+n <- nrow(orion)
+x <- orion$AGE
+y <- orion$PRICE
+# plug into formula
+num <- sum(x * y) - (sum(x) * sum(y) / n)
+den <- sqrt((sum(x^2) - (sum(x)^2/n))  *  (sum(y^2) - (sum(y)^2 / n)))
+r <- num / den
+r
 @
 
 %example 14.11
-\subsection{}
+\subsection{Using Technology to Obtain a Linear Correlatiion Coeffecient}
 
 <<ex14-11, eval=TRUE, dev='png', fig.width = 4, fig.height = 4>>=
+# read in the data
+orion <- read.csv("data/Tb14-02.txt", sep = "\t")
+str(orion)
+cor(orion)
 @
 
 %chapter 15
